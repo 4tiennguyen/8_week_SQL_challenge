@@ -7,4 +7,4 @@ We have 3 datasets:
 * sales
 * menu
 * members  
-![](./image/diagram.jpg)
+![](./image/diagram.JPG)
