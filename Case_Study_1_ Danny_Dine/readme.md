@@ -7,4 +7,5 @@ We have 3 datasets:
 * sales
 * menu
 * members  
+You can refer to the relationship diagram below to understand the connection between the three datasets
 ![](./image/diagram.JPG)
