@@ -8,3 +8,4 @@ We have 3 datasets:
 * menu
 * members
 
+8_week_SQL_challenge/Case_Study_1_ Danny_Dine/image/
