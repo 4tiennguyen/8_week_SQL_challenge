@@ -9,4 +9,4 @@ We have 3 datasets:
 * members
 ![diagram](https://user-images.githubusercontent.com/34051678/133913625-0b1466f9-a358-4034-af3a-c98ae003420f.JPG)
 
-
+![](./image/diagram.jpg)
