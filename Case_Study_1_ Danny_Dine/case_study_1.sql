@@ -62,7 +62,8 @@ FROM members;
 SELECT *
 FROM menu;
 SELECT *
-FROM sales
+FROM sales  
+  
 -- 1. What is the total amount each customer spent at the restaurant?
 SELECT customer_id, SUM(price) AS total
 FROM menu AS m JOIN sales AS s ON m.product_id = s.product_id
@@ -118,7 +119,8 @@ SELECT customer_id, product_name
 FROM(SELECT customer_id, product_name, 
        DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY total DESC) AS ranking
 FROM customer_p) AS a
-WHERE ranking = 1
+WHERE ranking = 1  
+  
 -- 8. Which item was purchased first by the customer after they became a member?
 WITH after_mem AS(
 SELECT m.customer_id, product_id,
@@ -127,7 +129,8 @@ FROM members AS m JOIN sales AS s ON m.customer_id = s.customer_id
 WHERE join_date < order_date)
 SELECT b.customer_id, m.product_name
 FROM after_mem AS b JOIN menu AS m ON b.product_id = m.product_id
-WHERE ranking = 1
+WHERE ranking = 1  
+  
 -- 8. What is the total items and amount spent for each member before they became a member?
 SELECT m.customer_id, COUNT(mn.product_id) AS total_items, SUM(price) AS amount_spent
 FROM members AS m JOIN sales AS s ON m.customer_id = s.customer_id
@@ -135,7 +138,7 @@ FROM members AS m JOIN sales AS s ON m.customer_id = s.customer_id
 WHERE join_date > order_date
 GROUP BY m.customer_id
 ORDER BY m.customer_id
-
+  
 -- 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 SELECT customer_id,
        SUM(CASE WHEN product_name ='sushi' THEN price *20
@@ -155,6 +158,3 @@ FROM members AS m JOIN sales AS s ON m.customer_id = s.customer_id
 WHERE  order_date <= '2021-01-31'
 GROUP BY m.customer_id
 ORDER BY m.customer_id 
-/***
-To help the team derive insights without needing to join the underlying tables using SQL.
-***/
